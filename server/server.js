@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.post('/api', api.fetchData, (req, res) => {
     console.log("it works");
-    return res.status(200).json(res.locals.response);  
+    return res.status(200).json(res.locals.output);  
 })
 
 

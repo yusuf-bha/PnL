@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles.css';
 
 class MainContainer extends Component {
     constructor(props) {
@@ -8,13 +9,12 @@ class MainContainer extends Component {
     
     render() {
         return (
-            <div>
-                <h1>{this.props.title}</h1>
+            <div className="main">
                 <form onSubmit={this.props.submit}>
-                    <label>
-                        <input type="text" placeholder="Wallet Address"></input>
-                        <input type="text" placeholder="Token"></input>
-                        <input type="submit"></input>
+                    <label className="form">
+                        <input className="input" type="text" placeholder="Wallet Address"></input>
+                        <input className="input" type="text" placeholder="Token"></input>
+                        <input className="button" type="submit"></input>
                     </label>
                 </form>
             </div>

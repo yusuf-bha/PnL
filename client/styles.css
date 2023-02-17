@@ -1,0 +1,54 @@
+.main {
+    height: 30vh;
+    width: 30vw;
+    border-radius: 30px;
+    background-color: rgb(233, 198, 155);
+
+}
+
+li {
+    display: inline;
+}
+
+.form {
+    display: grid;
+    place-items: center;
+}
+.input {
+    width: 25vw;
+    height: 5vh;
+    font-size: 150%;
+    border-radius: 20px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+.button {
+    width: 10vw;
+    height: 5vh;
+    font-size: 180%;
+    border-radius: 20px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+.app {
+    display: grid;
+    place-items: center;
+}
+.form {
+    margin-top: 30%;
+}
+.history {
+    padding-left: 1400px;
+
+}
+.home {
+    
+}
+.token {
+
+}
+.results {
+    display: grid;
+    align-items: center;
+    height: 400px;
+}

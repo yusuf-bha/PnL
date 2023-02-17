@@ -55,7 +55,41 @@ api.fetchData = (req, res, next) => {
             }
             b++;
         }
-        res.locals.response = results;
+        results.push({type: "current", price: Math.floor(prices[prices.length - 1][1])});
+
+        let currenTokens = 0;
+        let currentValue = 0;
+        let soldValue = 0;
+        let boughtValue = 0;
+    
+        for (const ele of results) {
+            if (ele.type === "buy") {
+                currenTokens += ele.quantity;
+                currentValue = currenTokens * ele.price;
+                boughtValue += ele.quantity * ele.price;
+            } else if (ele.type === "sell") {
+                currenTokens -= ele.quantity;
+                currentValue = currenTokens * ele.price;
+                soldValue += ele.quantity * ele.price;
+            } else currentValue = currenTokens * ele.price;
+            ele.pnl = Math.floor((((currentValue + soldValue) / boughtValue) * 100) - 100);
+        }
+
+        res.locals.output = {
+            prices: [],
+            pnl: [],
+            lables: []
+        }
+        let count = 1;
+        for (const ele of results) {
+            if (count === results.length) res.locals.output.lables.push("Currently");
+            else res.locals.output.lables.push(`Trade ${count}`);
+            res.locals.output.prices.push(ele.price);
+            res.locals.output.pnl.push(ele.pnl);
+            count++;
+        }
+
+        console.log(res.locals.output);
         return next();
     })
     .catch((err) => {
