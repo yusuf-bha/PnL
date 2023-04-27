@@ -17,6 +17,13 @@ app.post('/api', api.fetchData, (req, res) => {
     return res.status(200).json(res.locals.output);  
 })
 
+app.post('/signup', (req, res) => {
+    return res.status(200).json("successful");
+})
+
+app.post('/login', (req, res) => {
+    return res.status(200).json("successful");
+})
 
 
 app.listen(port, () => {
