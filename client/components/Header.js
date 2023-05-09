@@ -14,7 +14,6 @@ class Header extends Component {
                     <li className="home">Home</li>
                     <li className="history">History</li>
                 </ul>
-                
             </div>
         )
     }
